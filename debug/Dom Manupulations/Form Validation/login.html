@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+<form>
+    <input type="text" placeholder="name" id="name">
+    <input type="password" placeholder="password" id="password">
+    <input type="button" value="login" id="btn">
+</form>
+
+<script>
+    var name = document.getElementById("name");
+    var password = document.getElementById("password");
+    var storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+        var parsedUser = JSON.parse(storedUser);
+        name.value = parsedUser.name;
+        password.value = parsedUser.password;
+    }
+</script>
+</body>
+</html>

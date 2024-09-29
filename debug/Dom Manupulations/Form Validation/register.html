@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="name" id="name" required>
+        <input type="password" placeholder="password" id="password" required>
+        <input type="button" value="register" id="btn">
+    </form>
+
+    <script>
+        var btnn = document.getElementById("btn");
+
+        btnn.addEventListener("click", function() {
+            var username = document.getElementById("name");
+            var pass = document.getElementById("password");
+
+            // Log username and password values (for debugging)
+            console.log(username.value);
+            console.log(pass.value);
+
+            // Check if both fields are filled
+            if (username.value.length != 0 && pass.value.length != 0) {
+                
+                // Check if username is at least 5 characters long
+                if (username.value.length >= 5) {
+                    
+                    // Check if password contains only letters (no numbers or special characters)
+                    if (pass.value.match(/^[a-zA-Z]+$/)) {
+
+                        var userData = {
+                            name: username.value,
+                            password: pass.value
+                        };
+
+                        // Store the user data in localStorage
+                        localStorage.setItem("user", JSON.stringify(userData));
+
+                        // Redirect to login page
+                        window.location.assign("login.html");
+
+                    } else {
+                        alert("Password should only contain letters");
+                    }
+                } else {
+                    alert("Username should be at least 5 characters long");
+                }
+            } else {
+                alert("Username and password are required");
+            }
+
+            // Clear the input fields
+            username.value = "";
+            pass.value = "";
+        });
+    </script>
+</body>
+</html>

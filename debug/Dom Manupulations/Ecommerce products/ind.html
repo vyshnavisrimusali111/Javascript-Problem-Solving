@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+
+    <style>
+        body {
+            text-align: center;
+            padding-top: 100px; 
+        }
+        #navigate-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            margin-left:690px ;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="product-title">Product Details</h1>
+    <p id="product-description"></p>
+    <p id="product-price"></p>
+    <img id="product-image" alt="Product Image" style="width:200px;" />
+    <button id="navigate-btn">Back to Home</button>
+    <script>
+        console.log(window.location.href)
+        var productData = localStorage.getItem("data");
+        if (productData) {
+            var product = JSON.parse(productData);
+            
+            document.getElementById("product-title").innerText = product.title;
+            document.getElementById("product-description").innerText = product.description;
+            document.getElementById("product-price").innerText = "Price: $" + product.price;
+            document.getElementById("product-image").setAttribute("src", product.image);
+        } else {
+            document.getElementById("product-title").innerText = "No product data available!";
+        }
+
+        document.getElementById("navigate-btn").addEventListener("click", function() {
+ 
+        window.location.href = "index.html"; 
+    });
+    </script>
+
+</body>
+</html>

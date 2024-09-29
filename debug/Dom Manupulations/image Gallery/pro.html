@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+           justify-content: center;
+            align-items: center;
+        }
+        .image-list img {
+            width: 100px; 
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid transparent; 
+           
+        }
+        .image-list img:hover {
+            border: 2px solid rgb(255, 0, 234); 
+        }
+        #display-image {
+            margin-top: 20px;
+            max-width: 400px; 
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+<h2>Image Gallery</h2>
+<div class="image-list">
+    <img src="full2.jpg" alt="Image 1" onclick="displayImage(this.src)">
+    <img src="fullbanner.jpeg" alt="Image 2" onclick="displayImage(this.src)">
+    <img src="git.jpg" alt="Image 3" onclick="displayImage(this.src)">
+    <img src="google.jpg" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="google.jpg" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="green.jpeg" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="image.jpeg" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="idea.jpg" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="im3.jpg" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="im1.jpg" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="image (1).png" alt="Image 4" onclick="displayImage(this.src)">
+    <img src="image1.jpg" alt="Image 4" onclick="displayImage(this.src)">
+</div>
+
+<img id="display-image" alt="Selected Image">
+
+<script>
+    function displayImage(src) {
+        var displayImg = document.getElementById("display-image");
+        displayImg.src = src; 
+        displayImg.style.display = "block"; 
+    }
+</script>
+
+</body>
+</html>
